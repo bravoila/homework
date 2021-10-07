@@ -1,6 +1,6 @@
 package com.techbow.homework.y2021.m09.cma;
 
-public class L253 {
+public class LC253 {
     class Solution {
         public int minMeetingRooms(int[][] intervals) {
             if (intervals == null || intervals.length == 0) {
