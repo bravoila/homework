@@ -11,11 +11,11 @@ public class LC048 {
             for(int i = 0; i < size-1; i++){
                 int temp =  matrix[offset][offset+i];
                 matrix[offset][offset+i] = matrix[offset + size -1 - i][offset];
-                matrix[offset + size -1 - i][offset] = matrix[offset+size-1][offset+size-1-i];
-                matrix[offset+size-1][offset+size-1-i] = matrix[offset+i][offset+size-1];
-                matrix[offset+i][offset+size-1] = temp;
+                matrix[offset + size - 1 - i][offset] = matrix[offset + size - 1][offset+size - 1 - i];
+                matrix[offset + size - 1][offset+size - 1 - i] = matrix[offset + i][offset+size - 1];
+                matrix[offset + i][offset+size - 1] = temp;
             }
-            helper(matrix, offset+1, size-2);
+            helper(matrix, offset + 1, size - 2);
         }
 
     }
