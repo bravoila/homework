@@ -13,7 +13,7 @@ public class LC048 {
                 matrix[offset][offset + i] = matrix[offset + size -1 - i][offset];
                 matrix[offset + size - 1 - i][offset] = matrix[offset + size - 1][offset + size - 1 - i];
                 matrix[offset + size - 1][offset + size - 1 - i] = matrix[offset + i][offset + size - 1];
-                matrix[offset + i][offset+size - 1] = temp;
+                matrix[offset + i][offset + size - 1] = temp;
             }
             helper(matrix, offset + 1, size - 2);
         }
