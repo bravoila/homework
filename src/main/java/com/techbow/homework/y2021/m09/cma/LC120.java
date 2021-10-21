@@ -1,6 +1,7 @@
 package com.techbow.homework.y2021.m09.cma;
 
 public class LC120 {
+//    DFS
     class Solution {
         public int minimumTotal(List<List<Integer>> triangle) {
             Integer[][] dp = new Integer[triangle.size()][triangle.size()];
@@ -19,6 +20,28 @@ public class LC120 {
             // 2
             dp[i][j] =  triangle.get(i).get(j) + Math.min(left, right);
             return dp[i][j];
+        }
+
+    }
+
+//    DP
+    class Solution {
+        public int minimumTotal(List<List<Integer>> triangle) {
+//         dp[i][j] is the minimum path sum from (i,j) to bottom
+            int len = triangle.size();
+            int[][] dp = new int[len][len];
+
+            for(int j = 0; j < len; j++){
+                dp[len-1][j] = triangle.get(len-1).get(j);
+            }
+
+            for(int i = len-2; i >=0; i--){
+                for(int j = 0; j <= i; j++){
+                    dp[i][j] = Math.min(dp[i+1][j], dp[i+1][j+1]) + triangle.get(i).get(j);
+                }
+            }
+            return dp[0][0];
+
         }
 
     }
