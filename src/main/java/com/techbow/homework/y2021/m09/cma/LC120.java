@@ -25,6 +25,12 @@ public class LC120 {
     }
 
 //    DP
+//    1. Definition
+//    2. Base Case/ Start
+//    3. Induction Rule/ Function 状态转移方程
+//    4. Termination
+//    5. Optimization
+
     class Solution {
         public int minimumTotal(List<List<Integer>> triangle) {
 //         dp[i][j] is the minimum path sum from (i,j) to bottom
