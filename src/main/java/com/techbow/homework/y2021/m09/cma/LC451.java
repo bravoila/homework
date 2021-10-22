@@ -9,7 +9,10 @@ public class LC451 {
             }
 
             List<Character> characters = new ArrayList<>(counts.keySet());
-            Collections.sort(characters, (a, b) -> counts.get(b) - counts.get(a));
+//            Arrays.sort works for arrays which can be of primitive data type also.
+//            Collections.sort() works for objects Collections like ArrayList, LinkedList, etc.
+//            Collections.sort(characters, (a, b) -> counts.get(b) - counts.get(a));
+            Collections.sort(characters, (a, b) -> counts.get(b).compareTo(counts.get(a)));
 
             StringBuilder sb = new StringBuilder();
             for(char c: characters){
