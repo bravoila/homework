@@ -22,4 +22,27 @@ public class LC045 {
             return 0; // 跳不到咋办
         }
     }
+
+//    DP
+    class Solution {
+        public int jump(int[] nums) {
+            if(nums == null || nums.length < 2) return 0;
+            int len = nums.length;
+            int[] dp = new int[len];
+            dp[len-1] = 0;
+
+            for(int i = len-2; i >= 0; i--){
+                int minStep = Integer.MAX_VALUE;
+                // 向右看，视野所及范围内最小值
+                for(int j = 1; j <= nums[i]; j++){
+                    if(i + j < len){
+                        minStep = Math.min(dp[i+j], minStep);
+                    }
+                }
+                if (minStep == Integer.MAX_VALUE) dp[i] = Integer.MAX_VALUE;
+                else dp[i] = minStep+1;
+            }
+            return dp[0];
+        }
+    }
 }
