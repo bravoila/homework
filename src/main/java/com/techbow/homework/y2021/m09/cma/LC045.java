@@ -9,7 +9,7 @@ public class LC045 {
         public int jump(int[] nums) {
             if(nums == null || nums.length < 2) return 0;
             int result = 0;
-            int preMax = 0;
+            int preMax = 0; // 上次到的位置
             int curMax = 0; // 能到达的最远位置
             for(int i = 0; i < nums.length; i++) { // use curMax to justify whether you can hit the target or not:
                 if(i > preMax) {
@@ -39,6 +39,7 @@ public class LC045 {
                         minStep = Math.min(dp[i+j], minStep);
                     }
                 }
+//                或者可以用len(nums),因为len(nums) 也是无效值，肯定跳不出去
                 if (minStep == Integer.MAX_VALUE) dp[i] = Integer.MAX_VALUE;
                 else dp[i] = minStep+1;
             }
