@@ -1,7 +1,8 @@
-package com.techbow.homework.y2021.m09.cma;
+//package com.techbow.homework.y2021.m09.cma;
+import java.util.*;
 
 public class LC127 {
-    class Solution {
+//    class Solution {
         public int ladderLength(String beginWord, String endWord, List<String> wordList) {
             if(beginWord == null || endWord == null || wordList == null){
                 return -1;
@@ -54,5 +55,11 @@ public class LC127 {
             }
             return nextList;
         }
+//    }
+    public static void main(String[] args){
+        LC127 so = new LC127();
+        int res = so.ladderLength("hit", "cog", Arrays.asList("hot","dot","dog","lot","log","cog"));
+        System.out.println(res);
     }
 }
+//
