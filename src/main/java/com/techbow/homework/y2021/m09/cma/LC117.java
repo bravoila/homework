@@ -39,6 +39,7 @@ class Node {
                     if(mysize == 0){
                         node.next = null;
                     } else{
+//                        peak 相当于python里的[0], 返回的是最上层的元素
                         node.next = myqueue.peek();
                     }
 
