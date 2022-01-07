@@ -39,4 +39,22 @@ public class LC270 {
             return res;
         }
     }
+    class Solution {
+        // find closest
+        public int closestValue(TreeNode root, double target) {
+            if(root == null) return root.val;
+            TreeNode res = root;
+            TreeNode cur = root;
+
+            while(cur != null){
+                if(cur.val == target) return cur.val;
+                if(Math.abs(cur.val - target) < Math.abs(res.val - target)) res = cur;
+                if(cur.val > target) cur = cur.left;
+                else cur = cur.right;
+
+            }
+            return res.val;
+        }
+    }
+
 }
