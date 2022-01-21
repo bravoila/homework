@@ -1,6 +1,8 @@
 package com.techbow.homework.y2021.m09.cma;
 
 public class LC186 {
+
+//    reverse the whole string and then reverse words by words
     class Solution {
         public void reverseWords(char[] str) {
             if(str == null || str.length == 0) return;
