@@ -11,7 +11,7 @@ public class LC005 {
             for(int i = 0; i < s.length(); i++){
                 l = i;
                 r = i;
-//             连续字符串
+//             先找连续字符串
                 while(r+1 < s.length() && s.charAt(i) == s.charAt(i+1)){
                     r++;
                     i++;
