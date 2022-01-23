@@ -19,9 +19,28 @@ public class LC118 {
                 }
 
                 currRow.add(1);
-
                 triangle.add(currRow);
 
+            }
+
+            return triangle;
+        }
+    }
+
+//基于LC119的解法
+    class Solution {
+        public List<List<Integer>> generate(int numRows) {
+            List<Integer> row = new ArrayList<>();
+            row.add(1);
+            List<List<Integer>> triangle = new ArrayList<>();
+            triangle.add(new ArrayList<>(row));
+
+            for(int i = 0; i < numRows - 1; i ++){
+                for(int j = i; j > 0; j--){
+                    row.set(j, row.get(j) + row.get(j - 1));
+                }
+                row.add(1);
+                triangle.add(new ArrayList<>(row));
             }
 
             return triangle;

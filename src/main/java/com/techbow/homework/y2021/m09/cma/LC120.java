@@ -47,8 +47,6 @@ public class LC120 {
                 }
             }
             return dp[0][0];
-
         }
-
     }
 }
