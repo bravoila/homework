@@ -17,7 +17,7 @@ public class LC055 {
         }
     }
 
-//    DP
+//    DP 从右向左填
     class Solution {
         public boolean canJump(int[] nums){
             //cc
@@ -27,7 +27,7 @@ public class LC055 {
 
             for(int i = len-2; i >= 0; i--){
                 for(int j = 1; j <= nums[i]; j++){
-                    if(i+j >= len-1 || dp[i+j]) {
+                    if(i+j >= len-1 || dp[i+j]) { // 由远及近,依次可以跳出去。  由近及远-》if(i+j < len && dp[i+j])
                         dp[i] = true;
                         break;
                     }
@@ -46,6 +46,22 @@ public class LC055 {
                 if(maxRange < i) return false;
                 maxRange = Math.max(maxRange, nums[i] + i);
                 if(maxRange >= nums.length-1) return true;
+            }
+            return false;
+        }
+    }
+
+    class Solution {
+        public boolean canJump(int[] nums){
+            int maxRange = nums[0];
+            int n = nums.length;
+            int idx = 0;
+
+            for(int i = 0; i <=maxRange; i++){
+                if(maxRange >= n - 1){
+                    return true;
+                }
+                maxRange = Math.max(maxRange, i + nums[i]);
             }
             return false;
         }
