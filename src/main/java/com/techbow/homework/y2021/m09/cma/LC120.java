@@ -24,6 +24,39 @@ public class LC120 {
 
     }
 
+// recursion + dp + pruning
+    class Solution {
+        public int minimumTotal(List<List<Integer>> triangle) {
+            int len = triangle.size();
+//         因为要与null比较，所以要是Integer不能是int,an int is a primitive type and cannot be null
+//         要么在最开始明确size （Integer[len][len]），要么在之后读的时候再明确size，如果不明确的话，dp[i]是null，dp[i][j]读不出来
+            Integer[][] dp = new Integer[len][len];
+            return recursion(triangle, 0, 0, dp);
+        }
+
+        private int recursion(List<List<Integer>> matrix, int i, int j, Integer[][] dp){
+            if(i == matrix.size()){
+                return 0;
+            }
+            // if(dp[i] == null){
+            //     dp[i] = new Integer[matrix.get(i).size()];
+            // }
+
+            if(dp[i] != null && dp[i][j] != null){
+                return dp[i][j];
+            }
+
+            int left = recursion(matrix, i + 1, j, dp);
+            int right = recursion(matrix, i + 1, j + 1, dp);
+
+            dp[i][j] =  matrix.get(i).get(j) + Math.min(left, right);
+
+            return dp[i][j];
+        }
+    }
+
+
+
 //    DP
 //    1. Definition
 //    2. Base Case/ Start
