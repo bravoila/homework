@@ -29,6 +29,7 @@ class Node {
             if(root == null) return head;
             dfs(root);
 
+//         成环
             prev.right = head;
             head.left = prev;
 
@@ -36,18 +37,20 @@ class Node {
         }
 
         public void dfs(Node root){
+//         in order traversal
             if(root == null) return;
 
             dfs(root.left);
 
             if(prev != null) {
+//             构建双向列表， prev向右指， root向左指
                 prev.right = root;
                 root.left = prev;
             }
             else {
                 head = root;
             }
-
+//         prev向下一个移动，
             prev = root;
 
             dfs(root.right);
