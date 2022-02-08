@@ -4,6 +4,37 @@ public class LC022 {
     class Solution {
         public List<String> generateParenthesis(int n) {
             List<String> res = new ArrayList<>();
+            int l = 0;
+            int r = 0;
+            dfs(res, new StringBuilder(), n, 0, l, r);
+            return res;
+        }
+
+        private void dfs(List<String> res, StringBuilder path, int n, int idx, int l, int r){
+            if(idx == 2*n && l == r){
+                res.add(path.toString());
+                return;
+            }
+            if(idx >= 2*n || l > n || r > n || l < r){
+                return;
+            }
+            // add (
+            path.append("(");
+            dfs(res, path, n, idx + 1, l + 1, r);
+            path.setLength(path.length() - 1);
+
+            // add )
+            path.append(")");
+            dfs(res, path, n, idx + 1, l , r + 1);
+            path.setLength(path.length() - 1);
+        }
+    }
+
+// 优化版
+
+    class Solution {
+        public List<String> generateParenthesis(int n) {
+            List<String> res = new ArrayList<>();
             int delta = 0;
             dfs(res, new StringBuilder(), n, delta);
             return res;
