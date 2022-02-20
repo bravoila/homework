@@ -16,7 +16,7 @@ public class LC1675 {
             }
             int minDeviation = Integer.MAX_VALUE;
 
-            while (!evens.isEmpty()) {
+            while (!evens.isEmpty()) { 
                 int currentValue = evens.poll();
                 minDeviation = Math.min(minDeviation, currentValue - minimum);
                 if (currentValue % 2 == 0) {
