@@ -1,6 +1,7 @@
 package com.techbow.homework.y2021.m09.cma;
 
 public class LC958 {
+    // 什么时候set，什么时候check？
     class Solution {
         public boolean isCompleteTree(TreeNode root) {
             if (root == null) {
