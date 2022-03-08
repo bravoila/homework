@@ -1,6 +1,6 @@
 package com.techbow.homework.y2021.m09.cma;
 
-public class L097 {
+public class LC097 {
     class Solution {
         public boolean isInterleave(String s1, String s2, String s3) {
             int slen1 = s1.length();
