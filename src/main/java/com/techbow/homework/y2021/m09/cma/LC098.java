@@ -28,4 +28,27 @@ public class LC098 {
             return isBST(root.left, lower, root.val) && isBST(root.right, root.val, upper);
         }
     }
+
+    class Solution {
+        private TreeNode prev = null;
+
+        public boolean isValidBST(TreeNode root) {
+            return val(root);
+        }
+
+        private boolean val(TreeNode root){
+            if(root == null){
+                return true;
+            }
+            // 一杆子到左底，相当于把tree拉直了，检查i和i-1值的大小
+            if(!val(root.left)){
+                return false;
+            }
+            if(prev != null && prev.val > root.val){
+                return false;
+            }
+            prev = root;
+            return val(root.right);
+        }
+    }
 }
