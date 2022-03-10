@@ -28,5 +28,4 @@ public class LC098 {
             return isBST(root.left, lower, root.val) && isBST(root.right, root.val, upper);
         }
     }
-
 }
