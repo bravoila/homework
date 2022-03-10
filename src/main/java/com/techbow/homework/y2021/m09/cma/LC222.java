@@ -26,6 +26,33 @@ public class LC222 {
         }
     }
 
-//    O(1) 解法
+//    O(logn) 解法
+    class Solution {
+        public int countNodes(TreeNode root) {
+            if(root == null) return 0;
+            int countLeft = getHeight(root.left);
+            int countRight = getHeight(root.right);
+
+            int count = 1;
+            if(countLeft > countRight){
+                count += Math.pow(2, countRight) - 1;
+                return count  + countNodes(root.left);
+            }else if(countLeft == countRight){
+                count += Math.pow(2, countLeft) - 1;
+                return count + countNodes(root.right);
+            }else{
+                return -1;
+            }
+        }
+
+        private int getHeight(TreeNode root){
+            int height = 0;
+            while(root != null){
+                height++;
+                root = root.left;
+            }
+            return height;
+        }
+    }
 
 }
