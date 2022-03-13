@@ -27,6 +27,29 @@ public class LC220 {
             return false;
         }
     }
+
+//    TreeSet
+    class Solution {
+        public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+            //TreeSet
+            TreeSet<Long> myset = new TreeSet<>();
+            for(int i = 0; i < nums.length; i++){
+                if(i >= k + 1){
+                    myset.remove((long) nums[i - k - 1]);
+                }
+                long ub = (long) nums[i] + t;
+                long lb = (long) nums[i] - t;
+
+                Long val = myset.floor(ub);
+                if(val != null && val >= lb){
+                    return true;
+                }
+                myset.add((long) nums[i]);
+            }
+            return false;
+        }
+    }
+
 // Bucket sort
     public class Solution {
         // Get the ID of the bucket from element value x and bucket width w
