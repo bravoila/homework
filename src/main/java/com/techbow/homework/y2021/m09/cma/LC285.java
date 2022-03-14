@@ -61,4 +61,28 @@ public class LC285 {
             return res;
         }
     }
+
+    class Solution {
+        public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+            TreeNode res = null;
+            boolean isContain = false;
+
+            while(root !=null){
+                if(root.val < p.val){
+                    root = root.right;
+                } else if(root.val > p.val){
+                    res = root;
+                    root = root.left;
+                } else{
+                    isContain = true;
+                    root = root.right;
+                }
+            }
+            if(!isContain){
+                //should throw new RuntimeException("not exist");
+                return null;
+            }
+            return res;
+        }
+    } 
 }
