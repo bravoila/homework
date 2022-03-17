@@ -10,11 +10,13 @@ public class LC300 {
                 if(idx < mylist.size()){
                     mylist.set(idx, num);
                 }else{
+                    // num比list里的元素都大
                     mylist.add(num);
                 }
             }
             return mylist.size();
         }
+        // 找大于等于target的最小值
         private int binarySearch(List<Integer> mylist, int target){
             int start = 0, med = 0, med_value = 0, end = mylist.size()-1;
             while(start <= end){
