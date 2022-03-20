@@ -63,4 +63,56 @@ public class LC253 {
             return rooms;
         }
     }
+
+// 改写comparator
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        if(intervals == null){
+            return 0;
+        }
+        List<EndPoint> list = new ArrayList<EndPoint>();
+        for(int[] i : intervals){
+            list.add(new EndPoint(i[0], false));
+            list.add(new EndPoint(i[1], true));
+        }
+
+        Collections.sort(list);
+
+        int count = 0;
+        int max = 0;
+        for(EndPoint ep: list){
+            if(!ep.isEnd){
+                count++;
+            } else{
+                count--;
+            }
+            max = Math.max(count, max);
+        }
+        return max;
+    }
+}
+
+    class EndPoint implements Comparable<EndPoint>{
+        public int val;
+        public boolean isEnd;
+
+        public EndPoint(int val, boolean isEnd){
+            this.val = val;
+            this.isEnd = isEnd;
+        }
+
+        public int compareTo(EndPoint ep){
+            if(this.val < ep.val){
+                return -1;
+            }  else if(this.val > ep.val){
+                return 1;
+            } else{
+                if(this.isEnd){
+                    return -1;
+                } else{
+                    return 1;
+                }
+            }
+        }
+    }
 }
