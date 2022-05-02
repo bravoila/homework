@@ -24,7 +24,7 @@ public class LC111 {
 
             int leftHeight = minDepth(root.left);
             int rightHeight = minDepth(root.right);
-            // 双边都是nul，走的是base case
+            // 双边都是nul，走的是base case, 下面任意一种情况也是return 1
             // 下面是单边null的情况
             if(leftHeight == 0){
                 return rightHeight + 1;
