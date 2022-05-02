@@ -32,4 +32,29 @@ public class LC094 {
             return;
         }
     }
+
+    // using stack, no recursion
+    class Solution {
+        public List<Integer> inorderTraversal(TreeNode root) {
+            List<Integer> res=new ArrayList<>();
+            Stack<TreeNode> stack=new Stack<>();
+
+            if (root==null){
+                return res;
+            }
+
+            TreeNode node = root;
+
+            while(node!=null || !stack.isEmpty()){
+                while (node!=null){
+                    stack.push(node);
+                    node = node.left;
+                }
+                node = stack.pop();
+                res.add(node.val);
+                node = node.right;
+            }
+            return res;
+        }
+    }
 }
