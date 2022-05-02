@@ -21,14 +21,18 @@ public class LC111 {
             if(root == null){
                 return 0;
             }
+
             int leftHeight = minDepth(root.left);
             int rightHeight = minDepth(root.right);
-
-            if(leftHeight == 0 || rightHeight == 0){
-                return leftHeight + rightHeight + 1;
-            }else{
-                return Math.min(leftHeight, rightHeight) + 1;
+            // 双边都是nul，走的是base case
+            // 下面是单边null的情况
+            if(leftHeight == 0){
+                return rightHeight + 1;
             }
+            if(rightHeight == 0){
+                return leftHeight + 1;
+            }
+            return Math.min(leftHeight, rightHeight) + 1;
         }
     }
 }
