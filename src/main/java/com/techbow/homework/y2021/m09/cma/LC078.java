@@ -1,6 +1,7 @@
 package com.techbow.homework.y2021.m09.cma;
 
 public class LC078 {
+    // 分层的逻辑
     class Solution {
         public List<List<Integer>> subsets(int[] nums) {
             List<List<Integer>> res = new ArrayList<List<Integer>>();
@@ -10,7 +11,9 @@ public class LC078 {
         }
 
         private void dfs(int[] array, int index, List<Integer> sub, List<List<Integer>> res){
-
+            // if(index > nums.length){
+            //     return;
+            // }
             res.add(new ArrayList(sub));
 
             for(int i = index; i < array.length; i++){
@@ -21,7 +24,7 @@ public class LC078 {
         }
     }
 
-
+    // 取不取的逻辑
     class Solution {
         public List<List<Integer>> subsets(int[] nums) {
             List<List<Integer>> res = new ArrayList<List<Integer>>();
